@@ -3,39 +3,46 @@
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
-trigger:
-- develop
-
-pool:
-  vmImage: 'windows-latest'
-
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
-steps:
-
-- task: UseDotNet@2
-  displayName: 'Use .NET 5 sdk'
-  inputs:
-    packageType: sdk
-    version: '5.0.x'
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
     
-- task: NuGetToolInstaller@1
+  workflow_dispatch:
+  
+env:
+  solution: **/*.sln
+  buildPlatform: Any CPU
+  buildConfiguration: Release
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+jobs:
+  build:
+    runs-on:
+      vmImage: windows-latest
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    steps:
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+      - uses: UseDotNet@2
+        name: 'Use .NET 5 sdk'
+        with:
+          packageType: sdk
+          version: '5.0.x'
+        
+      - uses: NuGetToolInstaller@1
+
+      - uses: NuGetCommand@2
+        with:
+          restoreSolution: '$(solution)'
+
+      - uses: VSBuild@1
+        with:
+          solution: '$(solution)'
+          msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+          platform: '$(buildPlatform)'
+          configuration: '$(buildConfiguration)'
+
+      - uses: VSTest@2
+        with:
+          platform: '$(buildPlatform)'
+          configuration: '$(buildConfiguration)'
