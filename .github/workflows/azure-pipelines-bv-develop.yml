@@ -1,31 +1,22 @@
 on:
   push:
     branches:
-    - develop
+    - main
 env:
-  solution: '**/*.sln'
-  buildPlatform: Any CPU
   buildConfiguration: Release
+  buildPlatform: Any CPU
 jobs:
-  build:
+  Build:
+    name: Build job
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: microsoft/setup-msbuild@v1.0.2
-    - name: Use .NET 5 sdk
-      uses: actions/setup-dotnet@v1
+    - name: Test dotnet code projects
+      run: dotnet test LNUScheduler/LNUScheduler.Tests/MyProject.Tests.csproj --configuration ${{ env.buildConfiguration }}
+    - name: Publish dotnet core projects
+      run: dotnet publish LNUScheduler/LNUScheduler.Presentation/LNUScheduler.Presentation.csproj --configuration ${{ env.buildConfiguration }} --output ${{ github.workspace }}
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
       with:
-        dotnet-version: 5.0.x
-    - uses: nuget/setup-nuget@v1
-    - run: nuget restore ${{ env.solution }}
-    - run: msbuild '${{ env.solution }}' /p:configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}' /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="${{ github.workspace }}"
-    - run: |
-        $vsTestConsoleExe = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
-        $targetTestDll = ""
-        $testRunSettings = "/Settings:`"`" "
-        #Note that the `" is an escape character to quote strings, and the `& is needed to start the command
-        $command = "`& `"$vsTestConsoleExe`" `"$targetTestDll`" $testRunSettings $parameters "
-        Write-Host "$command"
-        Invoke-Expression $command
-      shell: powershell
+        path: ${{ github.workspace }}
                     
