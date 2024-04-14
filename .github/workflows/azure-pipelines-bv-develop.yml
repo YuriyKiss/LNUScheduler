@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Test dotnet code projects
-      run: dotnet test LNUScheduler/ScheduleLNU.Tests/ScheduleLNU.Tests.csproj --configuration ${{ env.buildConfiguration }}
+      run: dotnet test ScheduleLNU.Tests/ScheduleLNU.Tests.csproj --configuration ${{ env.buildConfiguration }}
     - name: Publish dotnet core projects
-      run: dotnet publish LNUScheduler/ScheduleLNU.Presentation/ScheduleLNU.Presentation.csproj --configuration ${{ env.buildConfiguration }} --output ${{ github.workspace }}
+      run: dotnet publish ScheduleLNU.Presentation/ScheduleLNU.Presentation.csproj --configuration ${{ env.buildConfiguration }} --output ${{ github.workspace }}
     - name: Publish Artifact
       uses: actions/upload-artifact@v2
       with:
