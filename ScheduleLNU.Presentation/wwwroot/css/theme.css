@@ -1,0 +1,24 @@
+﻿.selected-theme {
+    background-color: #eacc6a;
+    border: 1px solid #eacc6a;
+    margin-right: 10px;
+    margin-left: 28px;
+    color: white;
+}
+
+.selected-theme:hover {
+    background-color: white;
+    color: #eacc6a;
+}
+
+.unselected-theme {
+    border: 1px solid #eacc6a;
+    margin-right: 10px;
+    margin-left: 28px;
+    color: #eacc6a;
+}
+
+.unselected-theme:hover {
+    background-color: #eacc6a;
+    color: white;
+}

@@ -1,0 +1,208 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Zilla+Slab:300,400');
+
+
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #73C2FB;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+button:active {
+    outline: none;
+    border: none;
+}
+
+.my-container {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    min-height: 100%;
+    box-shadow: 0.0rem -0.5rem 2rem rgba(0, 0, 0, 0.6);
+    background: #ffffff;
+    margin: 0;
+    color: #000000;
+    font-family: input-mono-narrow, monospace;
+    font-size: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1 {
+    padding: 100px 0 20px 0;
+    margin: 0 0 50px 0;
+    align-self: center;
+    font-family: "fredericka the great", cursive;
+    font-weight: 500;
+    text-align: center;
+    font-size: 4rem;
+    color: #0047ab;
+    border-bottom: 2px solid #0047ab;
+}
+
+.items {
+    width: 70%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    align-self: center;
+}
+
+
+.add-button {
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 2px solid #0073cf;
+    color: #000;
+    background-color: #fff;
+}
+.add-button:hover {
+    border: 2px solid #000;
+    color: #fff;
+    background-color: #0073cf;
+}
+
+.add-button span {
+    display: block;
+    position: relative;
+}
+
+.add-button > span {
+    overflow: hidden;
+}
+
+.add-button:hover > span > span {
+    animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
+}
+
+.styles-confirm-button {
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    overflow: hidden;
+    border: 2px solid #198754;
+    color: #000;
+    background-color: #fff;
+    width: 200px;
+}
+.styles-confirm-button:hover {
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #198754;
+}
+
+.styles-confirm-button span {
+    display: block;
+    position: relative;
+}
+
+.styles-confirm-button > span {
+    overflow: hidden;
+}
+
+.styles-confirm-button:hover > span > span {
+    animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
+}
+
+@keyframes MoveUpInitial {
+    to {
+        transform: translate3d(0,-105%,0);
+    }
+}
+
+@keyframes MoveUpEnd {
+    from {
+        transform: translate3d(0,100%,0);
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+    }
+}
+
+.item {
+    height: 50px;
+    border: 2px solid #ffffff;
+    margin: 5px 0 0 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-title {
+    margin: 0 0 0 15px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.item-actions {
+    margin: 0 10px 0 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    background: #fff;
+    padding: 0;
+}
+
+#edit-button {
+    border: 1px solid #198754;
+    color: #198754;
+    margin-right: 28px;
+}
+
+#edit-button:hover {
+    background: #198754;
+    color: #fff;
+}
+
+#delete-button {
+    border: 1px solid #ff0800;
+    color: #ff0800;
+}
+
+#delete-button:hover {
+    background: #ff0800;
+    color: #fff;
+}
+
+.item-example {
+    width: 40%;
+    border: 2px dashed #0073cf;
+    margin: 5px 0 25px 0;
+    font-size: 13px;
+    font-weight: 700;
+    align-items: flex-start;
+}
+
+.modal-open {
+    overflow: inherit;
+}
+.style-form{
+    width: 250px;
+    margin-left: 100px;
+    margin-right: auto;
+    margin-bottom: auto;
+}

@@ -1,0 +1,87 @@
+﻿header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #1177ca;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+}
+
+.h-right-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#home-link {
+    margin: 0 0 0 40px;
+    box-sizing: border-box;
+    color: #bad3ed;
+}
+#home-link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#logout-button {
+    margin: 0 40px 0 0;
+    color: #bad3ed;
+    background: none;
+    border: none;
+}
+#logout-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-btn {
+    border: none;
+    background: none;
+    color: #bad3ed;
+    width: 100%;
+}
+
+.dropdown-btn:hover {
+        color: white;
+    }
+
+.dropdown-section {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+}
+
+.dropdown-content {
+    font-size: 14px;
+    display: none;
+    width: 130%;
+    position: absolute;
+    background: white;
+    border: 1px solid #1177ca;
+    padding: 0;
+    box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 7px 0 7px 5px;
+    margin: 0;
+}
+
+.dropdown-content a:hover {
+    color: white;
+    background: #1177ca;
+}
+
+.dropdown-section:hover .dropdown-content {
+    display: block;
+}

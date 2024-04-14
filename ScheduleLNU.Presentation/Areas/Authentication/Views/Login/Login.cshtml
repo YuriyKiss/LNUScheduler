@@ -1,0 +1,63 @@
+﻿@model ScheduleLNU.BusinessLogic.DTOs.LoginDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/authentication/authentication.css"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 infinity-form-container">
+            <div class="col-lg-9 col-md-12 col-sm-8 infinity-form">
+                <div class="text-left mb-4 px-3">
+                    <h4>Log in to LNU SCHEDULE</h4>
+                </div>
+                <div class="px-3">
+                    <div class="input-container">
+                        @*put here appropriate controller and method*@
+                        <form method="post">
+                            <div>@Html.ValidationSummary(false)</div>
+                            <div class="plain-line">
+                                <div class="float-left">
+                                    EMAIL ADDRESS
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email@gmail.com" })
+                            </div>
+                            <div class="plain-line">
+                                <div class="float-left">
+                                    PASSWORD
+                                </div>
+                                <div class="text-right">
+                                    <a href="~/authentication/forgot-password"class="forget-link">Forgot password?</a>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Password, new { placeholder = "8+ characters(letters and numbers)", type = "password" })
+                            </div>
+                            <div class="plain-line">
+                                <div class="without-account">
+                                    Don't have an account?
+                                </div>
+                                <div>
+                                    <a href="~/authentication/register" class="redirect-link">Sign up</a>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-block">LOG IN</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

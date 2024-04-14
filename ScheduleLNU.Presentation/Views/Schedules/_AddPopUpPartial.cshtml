@@ -1,0 +1,30 @@
+﻿@model ScheduleLNU.BusinessLogic.DTOs.ScheduleDto
+<!-- Modal -->
+<div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog" aria-labelledby="addModalCenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title text-light" id="addModalLongTitle">Add Schedule</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--TODO: Check if input is not empty -->
+                <form action="@Url.Action("Add", "Schedules")" method="post">
+                    <div class="form-group">
+                        <label asp-for="Title">Enter title:</label>
+                        <input asp-for="Title" class="form-control" name="scheduleTitle">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-info" data-save="modal" id="addSchedule">
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

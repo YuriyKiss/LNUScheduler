@@ -1,0 +1,66 @@
+﻿@model ScheduleLNU.BusinessLogic.DTOs.RegisterDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/authentication/authentication.css"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 infinity-form-container">
+            <div class="col-lg-9 col-md-12 col-sm-8 infinity-form">
+                <div class="text-left mb-4 px-3">
+                    <h4>Create Account</h4>
+                </div>
+                <div class="px-3">
+                    <div class="input-container">
+                        @*put here appropriate controller and method*@
+                        <form method="post">
+                            <div>@Html.ValidationSummary(false)</div>
+                            <div class="fname-lname-container">
+                                <div class="form-input name-item mr-2">
+                                    <div class="plain-line mb-1">FIRST NAME</div>
+                                    @Html.TextBoxFor(m => m.FirstName, new { placeholder = "John" })
+                                </div>
+                                <div class="form-input name-item ml-2">
+                                    <div class="plain-line mb-1">LAST NAME</div>
+                                    @Html.TextBoxFor(m => m.LastName, new { placeholder = "Doe" })
+                                </div>
+                            </div>
+                            <div class="plain-line">
+                                <div class="float-left">
+                                    EMAIL
+                                </div>
+                                <br/>
+                            </div>
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "johndoe@gmail.com" })
+                            </div>
+
+                            <div class="plain-line">
+                                <div class="float-left">
+                                    PASSWORD
+                                </div>
+                                <div class="text-right">
+                                    <a href="~/authentication/login" class="redirect-link">Already have an account?</a>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Password, new { placeholder = "8+ characters(letters and numbers)", type = "password" })
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-block">SIGN UP</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

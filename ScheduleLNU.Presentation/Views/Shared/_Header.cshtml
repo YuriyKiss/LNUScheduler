@@ -1,0 +1,30 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<header>
+    <a id="home-link"
+       href="/">
+        <i class="bi bi-house"></i>
+        Home
+    </a>
+    <div class="h-right-section">
+        <div class="dropdown-section">
+            <button class="dropdown-btn">
+                <i class="bi bi-gear"></i>
+                Settings
+            </button>
+            <div class="dropdown-content">
+                <a href="~/settings/themes">Site Themes</a>
+                <a href="~/settings/event-styles">Event Styles</a>
+                <a href="~/authentication/forgot-password">Change Password</a>
+            </div>
+        </div>
+        <a  asp-area="authentication"
+            asp-controller="Logout"
+            asp-action="Logout"
+            id="logout-button">
+            <i class="bi bi-door-open"></i>
+            Log Out
+        </a>
+    </div>
+</header>
