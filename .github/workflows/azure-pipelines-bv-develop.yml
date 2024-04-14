@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-    - main
+    - develop
+    workflow_dispatch:
 env:
   buildConfiguration: Release
   buildPlatform: Any CPU
