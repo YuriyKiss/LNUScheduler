@@ -62,7 +62,7 @@ namespace ScheduleLNU.DataAccess.Repository
         private IQueryable<TEntity> GetValueWithInclude(
             params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            IQueryable<TEntity> querriedEntities = entitiesDataSet.AsNoTracking();
+            IQueryable<TEntity> querriedEntities = entitiesDataSet;
 
             return includeProperties.Aggregate(
                 querriedEntities,
